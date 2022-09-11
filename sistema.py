@@ -1,6 +1,6 @@
 
-from datetime import date
-from unittest import suite
+# from datetime import date
+# from unittest import suite
 from imports.menu import *
 from time import sleep
 
@@ -11,31 +11,46 @@ from time import sleep
 
 
 cabecalho( 'SITEMA CHALENGE PYTHON v1.0')
+
+cadastro = []
+cad_empresa = []
+
 while True:
+    
     resposta = menu(['Cadastrar Empresa', 'Cadastrar Candiadato', 'Ver Candidato Cadastrado','Ver Vagas', 'Sair do Sistema'])
     if resposta == 1:
-       cabecalho('Cadastrar Empresa')
+       cabecalho("Cadastrar Empresa")
+       cad_empresa = []
+    
+       
     elif resposta == 2:
         cabecalho('Cadastrar Candiadato')
 
-        cadastro = []
+        
         print('Informe seus dados!')
         usuario = input('informe seu Nome: ')
-        cpf = int(input('Digite o seu cpf: '))
+        cpf = (input('Digite o seu cpf: '))
         dtNasc = (input('Dite a data de nascimento: '))
         genero = input('Digite sexo: ')
         apelido = input('Digite seu apelido: ')  
 
+        
         cadastro.append(f'Nome: {usuario}')
         cadastro.append(f'CPF: {cpf}')
         cadastro.append(f'Data de Nascimento: {dtNasc}')
         cadastro.append(f'Genero: {genero}')
         cadastro.append(f'Apelido: {apelido}')
+        print("Cadastrado com seucesso!")
+
 
     elif resposta == 3:
         cabecalho('Ver Candidato Cadastrado')
-        for i in(range(len(cadastro))):
-            print(cadastro[i])
+        if len(cadastro) > 1:
+
+            for i in range(len(cadastro)):
+             print(cadastro[i])
+        else:
+            print('Nenhum cadidato encontrado')     
 
 
     elif resposta == 4:
